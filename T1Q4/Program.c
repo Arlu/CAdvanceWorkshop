@@ -1,26 +1,64 @@
 #include <stdio.h>
 
-size_t strlen(const char *str)
+int CheckIfNumberIsOdd(size_t number)
 {
-    size_t result = 0;
-    const char *current = str;
+    return number % 2;
+}
 
-    while (*current++ != '\0')
+void PrintNOfSameChar(char character, size_t times)
+{
+    while (times-- != 0)
     {
-        result++;
+        printf("%c", character);
+    }
+}
+
+int PrintDiamond(size_t max)
+{
+    size_t line = 1;
+
+    if (!CheckIfNumberIsOdd(max))
+    {
+        return 1;
     }
 
-    return result;
+    while (line <= max / 2)
+    {
+        PrintNOfSameChar(' ', max / 2 - line + 1);
+        PrintNOfSameChar('*', line * 2 - 1);
+        printf("\n");
+        line++;
+    }
+
+    PrintNOfSameChar('*', max);
+    printf("\n");
+    line++;
+
+    while (line <= max)
+    {
+        PrintNOfSameChar(' ', max / 2 - max + line);
+        PrintNOfSameChar('*', (max - line + 1) * 2 - 1);
+        printf("\n");
+        line++;
+    }
+
+    return 0;
 }
 
 int main()
 {
-    char myString[100];
+    int result;
+    size_t input;
 
-    printf("Enter some string (up to 100):\n");
-    fgets(myString, 100, stdin);
+    printf("Enter odd positive integer for print diamond: ");
+    scanf_s("%u", &input);
 
-    printf("The lenght of the string is %zu\n", strlen(myString));
+    result = PrintDiamond(input);
+
+    if (result == 1)
+    {
+        printf("You must enter odd positive integer!\n");
+    }
 
     return 0;
 }

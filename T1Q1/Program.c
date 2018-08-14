@@ -8,7 +8,7 @@ int main()
     do
     {
         input = getchar();
-        putchar(toupper(input));
+        putchar(input);
     } while (tolower(input) != 'q');
 
     return 0;
