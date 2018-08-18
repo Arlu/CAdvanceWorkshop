@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+/**
+ * Get lenght of the string up to null terminate (not include it).
+ * 
+ * @param str the string.
+ * @return lenght of the string up to null terminate (not include it)
+ */
 size_t strlen(const char *str)
 {
     size_t result = 0;
