@@ -1,10 +1,21 @@
 #include <stdio.h>
 
+/**
+ * Check if the number is odd.
+ *
+ * @return if the number is odd.
+ */
 int CheckIfNumberIsOdd(size_t number)
 {
     return number % 2;
 }
 
+/**
+* Print selected char n times.
+*
+* @param character selected char.
+* @param times how many time to selected char.
+*/
 void PrintNOfSameChar(char character, size_t times)
 {
     while (times-- != 0)
@@ -13,6 +24,11 @@ void PrintNOfSameChar(char character, size_t times)
     }
 }
 
+/**
+* Print diamond.
+*
+* @param max diamond size by center line wide.
+*/
 int PrintDiamond(size_t max)
 {
     size_t line = 1;
@@ -22,6 +38,7 @@ int PrintDiamond(size_t max)
         return 1;
     }
 
+    /* Print before center line. */
     while (line <= max / 2)
     {
         PrintNOfSameChar(' ', max / 2 - line + 1);
@@ -30,10 +47,12 @@ int PrintDiamond(size_t max)
         line++;
     }
 
+    /* Print center line. */
     PrintNOfSameChar('*', max);
     printf("\n");
     line++;
 
+    /* Print after center line. */
     while (line <= max)
     {
         PrintNOfSameChar(' ', max / 2 - max + line);
