@@ -1,12 +1,9 @@
 #include <stdio.h>
 
-int main()
+void main()
 {
-    const int VAL = 2;
-    int *p = &VAL;
-    *p *= 2;
-
-    printf("%d\n", VAL);
-
-    return 0;
+    int x = 1;
+    char *y = &x;
+    y++;
+    int *z = &y;
 }
